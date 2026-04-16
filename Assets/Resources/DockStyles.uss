@@ -1,0 +1,414 @@
+:root {
+    --dock-bg-color: #282c34;
+    --dock-border-color: #1e2125;
+    --window-bg-color: #383c4a;
+    --window-header-color: #4b5060;
+    --window-header-hover-color: #555b6d;
+    --window-header-drag-color: #61afef;
+    --text-color: #dcdcdc;
+    --sash-color: #1e2125;
+    --sash-hover-color: #61afef;
+    --tab-bg-color: #21252b;
+    --tab-active-color: #383c4a;
+    --tab-text-color: #9da5b4;
+    --tab-active-text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --drop-zone-color: rgba(97, 175, 239, 0.3);
+    --drop-zone-border-color: #61afef;
+    --resize-handle-size: 6px;
+}
+
+/* ============================================
+   ROOT CONTAINER
+   ============================================ */
+.dock-root {
+    flex-grow: 1;
+    background-color: var(--dock-bg-color);
+}
+
+.dock-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sash-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.float-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ============================================
+   DOCK WINDOW
+   ============================================ */
+.dock-window {
+    position: absolute;
+    background-color: var(--window-bg-color);
+    border-color: var(--dock-border-color);
+    border-width: 1px;
+    overflow: hidden;
+}
+
+.dock-window.floating {
+    border-width: 2px;
+    border-color: var(--dock-border-color);
+}
+
+.dock-window.floating:hover {
+    border-color: #555b6d;
+}
+
+.dock-window.dragging {
+    opacity: 0.85;
+    border-color: var(--drop-zone-border-color);
+}
+
+/* ============================================
+   WINDOW HEADER
+   ============================================ */
+.dock-window-header {
+    height: 24px;
+    background-color: var(--window-header-color);
+    flex-direction: row;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 4px;
+    flex-shrink: 0;
+}
+
+.dock-window-header:hover {
+    background-color: var(--window-header-hover-color);
+}
+
+.dock-window-header.dragging {
+    background-color: var(--window-header-drag-color);
+}
+
+.dock-window-title {
+    color: var(--text-color);
+    -unity-font-style: bold;
+    flex-grow: 1;
+    -unity-text-align: middle-left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dock-window-maximize-btn {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-width: 0;
+    color: var(--text-color);
+    margin-right: 2px;
+    font-size: 14px;
+    -unity-text-align: middle-center;
+}
+
+.dock-window-maximize-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.dock-window-close-btn {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-width: 0;
+    color: var(--text-color);
+    font-size: 16px;
+    -unity-text-align: middle-center;
+}
+
+.dock-window-close-btn:hover {
+    background-color: #e06c75;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+/* ============================================
+   WINDOW CONTENT
+   ============================================ */
+.dock-window-content {
+    flex-grow: 1;
+    background-color: var(--window-bg-color);
+    padding: 5px;
+}
+
+/* ============================================
+   RESIZE HANDLES
+   ============================================ */
+.dock-resize-handle {
+    position: absolute;
+    background-color: transparent;
+}
+
+.dock-resize-top {
+    top: 0;
+    left: var(--resize-handle-size);
+    right: var(--resize-handle-size);
+    height: var(--resize-handle-size);
+    cursor: resize-vertical;
+}
+
+.dock-resize-bottom {
+    bottom: 0;
+    left: var(--resize-handle-size);
+    right: var(--resize-handle-size);
+    height: var(--resize-handle-size);
+    cursor: resize-vertical;
+}
+
+.dock-resize-left {
+    left: 0;
+    top: var(--resize-handle-size);
+    bottom: var(--resize-handle-size);
+    width: var(--resize-handle-size);
+    cursor: resize-horizontal;
+}
+
+.dock-resize-right {
+    right: 0;
+    top: var(--resize-handle-size);
+    bottom: var(--resize-handle-size);
+    width: var(--resize-handle-size);
+    cursor: resize-horizontal;
+}
+
+.dock-resize-corner {
+    width: var(--resize-handle-size);
+    height: var(--resize-handle-size);
+}
+
+.dock-resize-top-left {
+    top: 0;
+    left: 0;
+    cursor: resize-up-left;
+}
+
+.dock-resize-top-right {
+    top: 0;
+    right: 0;
+    cursor: resize-up-right;
+}
+
+.dock-resize-bottom-left {
+    bottom: 0;
+    left: 0;
+    cursor: resize-down-left;
+}
+
+.dock-resize-bottom-right {
+    bottom: 0;
+    right: 0;
+    cursor: resize-down-right;
+}
+
+/* ============================================
+   SASHES (Dividers between docked windows)
+   ============================================ */
+.dock-sash {
+    position: absolute;
+    background-color: var(--sash-color);
+}
+
+.dock-sash:hover {
+    background-color: var(--sash-hover-color);
+}
+
+.dock-sash.active {
+    background-color: var(--sash-hover-color);
+}
+
+.dock-sash-vertical {
+    width: 4px;
+    cursor: resize-horizontal;
+}
+
+.dock-sash-horizontal {
+    height: 4px;
+    cursor: resize-vertical;
+}
+
+/* ============================================
+   TAB BAR
+   ============================================ */
+.dock-tab-bar {
+    height: 24px;
+    flex-direction: row;
+    background-color: var(--tab-bg-color);
+    flex-shrink: 0;
+}
+
+.dock-tab {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--tab-bg-color);
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-right-width: 1px;
+    border-right-color: var(--dock-border-color);
+}
+
+.dock-tab:hover {
+    background-color: #2c3038;
+}
+
+.dock-tab-label {
+    color: var(--tab-text-color);
+    -unity-text-align: middle-left;
+}
+
+.dock-tab.active {
+    background-color: var(--tab-active-color);
+}
+
+.dock-tab.active .dock-tab-label {
+    color: var(--tab-active-text-color);
+}
+
+.dock-tab-close {
+    width: 14px;
+    height: 14px;
+    margin-left: 6px;
+    background-color: transparent;
+    border-width: 0;
+    color: var(--tab-text-color);
+    font-size: 10px;
+    -unity-text-align: middle-center;
+}
+
+.dock-tab-close:hover {
+    background-color: #e06c75;
+    color: #ffffff;
+    border-radius: 2px;
+}
+
+/* ============================================
+   DROP ZONES & PREVIEW
+   ============================================ */
+.dock-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.dock-preview.visible {
+    display: flex;
+}
+
+.drop-zones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.drop-zones.visible {
+    display: flex;
+}
+
+.drop-zone {
+    position: absolute;
+    background-color: var(--drop-zone-color);
+    border-color: var(--drop-zone-border-color);
+    border-width: 2px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.15s;
+}
+
+.drop-zone.visible {
+    opacity: 1;
+}
+
+.drop-zone:hover {
+    background-color: rgba(97, 175, 239, 0.5);
+}
+
+.drop-zone-root {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+.drop-zone-left {
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.drop-zone-right {
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.drop-zone-top {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 10px;
+    margin-left: -25px;
+}
+
+.drop-zone-bottom {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -25px;
+}
+
+.drop-zone-center {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+/* Dock preview phantom (shows where window will dock) */
+.dock-phantom {
+    position: absolute;
+    background-color: rgba(97, 175, 239, 0.3);
+    border-color: #61afef;
+    border-width: 2px;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+    display: none;
+}
+
+.no-pointer {
+    picking-mode: Ignore;
+}

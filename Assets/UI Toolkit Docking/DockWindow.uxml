@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+>
+    <ui:VisualElement name="dock-window" class="dock-window">
+        <!-- Header Bar -->
+        <ui:VisualElement name="header" class="dock-window-header">
+            <ui:Label name="title" text="Window" class="dock-window-title" />
+            <ui:Button name="maximize-btn" class="dock-window-maximize-btn" text="□" />
+            <ui:Button name="close-btn" class="dock-window-close-btn" text="×" />
+        </ui:VisualElement>
+        
+        <!-- Resize Handles (for floating windows) -->
+        <ui:VisualElement name="resize-top" class="dock-resize-handle dock-resize-top" />
+        <ui:VisualElement name="resize-bottom" class="dock-resize-handle dock-resize-bottom" />
+        <ui:VisualElement name="resize-left" class="dock-resize-handle dock-resize-left" />
+        <ui:VisualElement name="resize-right" class="dock-resize-handle dock-resize-right" />
+        <ui:VisualElement name="resize-top-left" class="dock-resize-handle dock-resize-corner dock-resize-top-left" />
+        <ui:VisualElement name="resize-top-right" class="dock-resize-handle dock-resize-corner dock-resize-top-right" />
+        <ui:VisualElement name="resize-bottom-left" class="dock-resize-handle dock-resize-corner dock-resize-bottom-left" />
+        <ui:VisualElement name="resize-bottom-right" class="dock-resize-handle dock-resize-corner dock-resize-bottom-right" />
+        
+        <!-- Content Area -->
+        <ui:VisualElement name="content" class="dock-window-content" />
+    </ui:VisualElement>
+</ui:UXML>

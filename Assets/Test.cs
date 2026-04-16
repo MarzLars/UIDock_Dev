@@ -8,9 +8,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Refs.UIDock_Core.UIDock;
 using UnityEngine;
-
-using PxPre.UIDock;
 
 public class Test : MonoBehaviour
 {

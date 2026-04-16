@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+>
+    <ui:VisualElement name="dock-root" class="dock-root">
+        <!-- Docked Windows Container -->
+        <ui:VisualElement name="dock-container" class="dock-container" picking-mode="Ignore" />
+        
+        <!-- Sash Container (resize handles between docked windows) -->
+        <ui:VisualElement name="sash-container" class="sash-container" picking-mode="Ignore" />
+        
+        <!-- Floating Windows Container -->
+        <ui:VisualElement name="float-container" class="float-container" picking-mode="Ignore" />
+        
+        <!-- Dock Preview Overlay (shown when dragging) -->
+        <ui:VisualElement name="dock-preview" class="dock-preview" picking-mode="Ignore" />
+        
+        <!-- Drop Zone Indicators -->
+        <ui:VisualElement name="drop-zones" class="drop-zones" picking-mode="Ignore">
+            <ui:VisualElement name="drop-root" class="drop-zone drop-zone-root" />
+            <ui:VisualElement name="drop-left" class="drop-zone drop-zone-left" />
+            <ui:VisualElement name="drop-right" class="drop-zone drop-zone-right" />
+            <ui:VisualElement name="drop-top" class="drop-zone drop-zone-top" />
+            <ui:VisualElement name="drop-bottom" class="drop-zone drop-zone-bottom" />
+            <ui:VisualElement name="drop-center" class="drop-zone drop-zone-center" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
